@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.generics import (ListCreateAPIView,
                                      RetrieveUpdateDestroyAPIView)
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated
 
 from restaurant.models import Booking, Menu
 from restaurant.serializers import BookingSerializer, MenuSerializer
@@ -26,3 +27,4 @@ class SingleItemMenuView(RetrieveUpdateDestroyAPIView):
 class BookingViewSet(ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
+    permission_classes = [IsAuthenticated]
