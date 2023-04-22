@@ -5,7 +5,6 @@ from .views import index, MenuView, SingleItemMenuView
 
 urlpatterns = [
     path("", index),
-    path("menu", MenuView.as_view(), name="menu"),
+    path("menu/", MenuView.as_view(), name="menu"),
     path("menu/<int:pk>", SingleItemMenuView.as_view()),
-    path("token-auth", obtain_auth_token)
 ]
